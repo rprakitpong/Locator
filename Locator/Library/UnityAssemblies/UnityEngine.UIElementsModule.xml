@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>UnityEngine.UIElementsModule</name>
+	</assembly>
+	<members>
+		<member name="T:UnityEngine.Yoga.Logger">
+			<summary>Initializes a new instance of the Logger.</summary>
+		</member>
+		<member name="T:UnityEngine.Experimental.UIElements.PopupWindow">
+			<summary>Class used to display popup windows that inherit from PopupWindowContent.</summary>
+		</member>
+	</members>
+</doc>

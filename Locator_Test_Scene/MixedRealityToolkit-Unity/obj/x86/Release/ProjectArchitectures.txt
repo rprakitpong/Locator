@@ -1,0 +1,1 @@
+C:\Users\HIVE\Desktop\Locator-master\Locator_Test_Scene\MixedRealityToolkit-Unity\MixedRealityToolkit-Unity.csproj;x86
