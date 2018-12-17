@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Locator-Examples/Molar Narrative/Scenes/Molar Narrative.unity
+- path: Assets/Locator-Examples/Test Scene/Scenes/Molar Narrative.unity
   isLoaded: 1
   isActive: 1
