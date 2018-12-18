@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit;
 
-public class FeedbackManager : MonoBehaviour
+public class FeedbackManager : Singleton<FeedbackManager>
 {
-    // Start is called before the first frame update
-    void Start()
+    override void Awake()
     {
-        
+        base.Awake();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddFeedback(GameObject GO)
     {
-        
+        if (GO.GetComponent<HightlightFeedback>() != null)
+        {
+            GO.GetComponent<HighlightFeedback>().HighlightBehaviour();
+        } else
+        {
+            GO.AddComponent<HighlightFeedback>();
+        }
     }
 }
