@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Locator-Examples\Test Scene\Locator tools\FeedbackManager.cs" />
      <Compile Include="Assets\Locator-Examples\Test Scene\Locator tools\HighlightFeedback.cs" />
+     <Compile Include="Assets\Locator-Examples\Test Scene\Locator tools\HighlightManager.cs" />
      <Compile Include="Assets\Locator-Examples\Test Scene\Locator tools\Locatable.cs" />
      <Compile Include="Assets\Locator-Examples\Test Scene\Locator tools\LocatableObjects.cs" />
      <Compile Include="Assets\Locator-Examples\Test Scene\Locator tools\Locator.cs" />
