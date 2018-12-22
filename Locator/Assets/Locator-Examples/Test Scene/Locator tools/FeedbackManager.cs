@@ -13,7 +13,7 @@ public class FeedbackManager : Singleton<FeedbackManager>
 
     public void AddFeedback(GameObject GO)
     {
-        HighlightManager.AddHighlight(GO);
+        HighlightManager.Instance.AddHighlight(GO);
         
     }
     

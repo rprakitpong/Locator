@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HoloToolkit.Unity;
 
 public class HighlightManager : Singleton<HighlightManager>
 {
-    Dictionary<HighlightFeedback, Info> Highlights;
+    Dictionary<string, HighlightFeedback> Highlights;
 
     public float waitTime;
 
@@ -14,6 +15,7 @@ public class HighlightManager : Singleton<HighlightManager>
     {
         base.Awake();
 
+        //instantiate highlightmarker
         if (GameObject.Find("LocatingSystem") != null)
         {
             HighlightMarker = GameObject.Find("LocatingSystem").transform.Find("PointerArrow").gameObject;
@@ -23,38 +25,19 @@ public class HighlightManager : Singleton<HighlightManager>
             throw new System.Exception("Please drop LocatingSystem prefab into scene");
         }
 
-        if (waitTime == null)
-        {
-            waitTime = 2f;
-        }
+        //instantiate waittime (hardcode)
+        waitTime = 2f;
     }
 
     public void AddHighlight(GameObject GO)
     {
-        //TODO should refactor this into a factory later
-        if (Highlights.ContainsValue(new Info(GO.name, 0f)))
+        if (Highlights.ContainsKey(GO.name))
         {
-            //
-        }
-        Highlights.Add(new HighlightFeedback(GO, HighlightMarker, waitTime), 2f);
-        //TODO priority is hardcoded as 2f 
-        //TODO decide what script and method to get priority from gameobject, ex GO.GetComponent<SomeScript>().GetPriority
-    }
-
-    private class Info
-    {
-        string name { get; set; }
-        float priority { get; set; }
-
-        public Info(string name, float priority)
+            Highlights[GO.name].HighlightBehaviour();
+        } else
         {
-            this.name = name;
-            this.priority = priority;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return name == obj.name;
+            Highlights.Add(GO.name, new HighlightFeedback(GO, HighlightMarker, waitTime));
         }
     }
+    
 }

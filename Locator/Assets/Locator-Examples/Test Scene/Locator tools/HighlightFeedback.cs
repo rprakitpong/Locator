@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity;
 
 public class HighlightFeedback
 {
-    
     bool HighlightToggle;
     GameObject HighlightedObject;
     Renderer HighlightedObjectRenderer;
@@ -13,7 +13,7 @@ public class HighlightFeedback
 
     float waitTime = 2f; 
 
-    private IEnumerator HighlightCoroutine;
+    IEnumerator HighlightCoroutine;
 
     // Start is called before the first frame update
     public HighlightFeedback(GameObject ObjectToHighlight, GameObject HighlightMarker, float waitTime)
@@ -32,7 +32,7 @@ public class HighlightFeedback
     {
         if (HighlightToggle)
         {
-            StartCoroutine(HighlightCoroutine);
+            MonoBehaviour.StartCoroutine(HighlightCoroutine);
         } 
     }
 
@@ -40,7 +40,7 @@ public class HighlightFeedback
     {
         if (HighlightToggle)
         {
-            StopCoroutine(HighlightCoroutine);
+            MonoBehaviour.StopCoroutine(HighlightCoroutine);
         } 
     }
 
@@ -56,7 +56,7 @@ public class HighlightFeedback
 
     public void HighlightBehaviour()
     {
-        Debug.Log("Highlighter turned on for " + this.gameObject.name);
+        Debug.Log("Highlighter turned on for " + HighlightedObject.gameObject.name);
         if (HighlightToggle)
         {
             HighlightToggle = false;
